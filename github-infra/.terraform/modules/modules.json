@@ -1,1 +1,0 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"oidc","Source":"registry.terraform.io/terraform-google-modules/github-actions-runners/google//modules/gh-oidc","Version":"3.1.0","Dir":".terraform/modules/oidc/modules/gh-oidc"}]}

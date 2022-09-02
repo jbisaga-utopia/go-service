@@ -23,12 +23,12 @@ resource "google_project_iam_member" "project" {
 module "oidc" {
   source      = "terraform-google-modules/github-actions-runners/google//modules/gh-oidc"
   project_id  = var.project_id
-  pool_id     = "gh-pool"
-  provider_id = "gh-provider"
+  pool_id     = "gh-actions-pool"
+  provider_id = "gh-actions-provider"
   sa_mapping = {
     (google_service_account.sa.account_id) = {
       sa_name   = google_service_account.sa.name
-      attribute = "attribute.repository/user/repo"
+      attribute = "attribute.repository/jbisaga-utopia/go-service"
     }
   }
 }

@@ -3,13 +3,19 @@ See https://cdk.tf/provider-generation for more details.*/
 import * as google from "./.gen/providers/google";
 
 import { Construct } from "constructs";
-import { App, TerraformStack } from "cdktf";
+import { App, TerraformStack, GcsBackend } from "cdktf";
 
 const LOCATION = 'us-central1';
+const STATE_BUCKET = 'go-service-test-tf-states';
 
 class MyStack extends TerraformStack {
   constructor(scope: Construct, name: string) {
     super(scope, name);
+
+    new GcsBackend(this, {
+      bucket: STATE_BUCKET,
+      prefix: 'terraform/state'
+    })
 
     const variables = this.getVariables();
 

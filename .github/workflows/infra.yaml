@@ -20,4 +20,4 @@ jobs:
           location: us-central1-a
 
       - run: |
-        gcloud auth list
+          gcloud auth list

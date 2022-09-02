@@ -21,6 +21,8 @@ jobs:
 
       - id: get-gke-credentials
         uses: google-github-actions/get-gke-credentials@v0.4.0
+        env:
+          GCLOUD_PROJECT: ${{ secrets.GCLOUD_PROJECT_ID }}
         with:
           cluster_name: my-cluster
           location: us-central1-a

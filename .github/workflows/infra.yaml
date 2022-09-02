@@ -19,7 +19,6 @@ jobs:
         with:
           workload_identity_provider: "projects/699537230161/locations/global/workloadIdentityPools/gh-pool/providers/gh-provider"
           service_account: "github-actions-sa@elaborate-leaf-361121.iam.gserviceaccount.com"
-          token_format: "access_token"
 
       - name: Install CDKTF CLI
         run: npm install -g cdktf-cli

@@ -33,6 +33,7 @@ jobs:
         uses: "google-github-actions/setup-gcloud@v0"
 
       - name: "Build Terraform"
+        working-directory: ./github-infra
         env:
           ACCESS_TOKEN: "${{ steps.auth.outputs.access_token }}"
         run: |

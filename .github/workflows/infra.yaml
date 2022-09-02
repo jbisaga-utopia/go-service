@@ -1,0 +1,23 @@
+name: Build Infra
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  cdktf:
+    runs-on: ubuntu-latest
+    steps:
+      - id: auth
+        uses: google-github-actions/auth@v0.4.0
+        with:
+          workload_identity_provider: 'projects/699537230161/locations/global/workloadIdentityPools/ci-cd-pool/providers/ci-cd-provider'
+          service_account: 'ci-cd-894@elaborate-leaf-361121.iam.gserviceaccount.com'
+
+      - id: get-gke-credentials
+        uses: google-github-actions/get-gke-credentials@v0.4.0
+        with:
+          cluster_name: my-cluster
+          location: us-central1-a
+
+      - run: |
+        gcloud auth list
